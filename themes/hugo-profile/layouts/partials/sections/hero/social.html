@@ -5,7 +5,7 @@
             {{ if not (hasPrefix .url "#") }} target="_blank" {{ end }}
             class="btn social-icon"
         >
-            <i class="{{ .icon }}"></i>
+            <i class="{{ .icon }}" alt="icon"></i>
         </a>
     </span>
     {{ end }}
@@ -16,7 +16,7 @@
             {{ if not (hasPrefix .url "#") }} target="_blank" {{ end }}
             class="btn social-icon"
         >
-            <img src="{{ .icon }}">
+            <img src="{{ .icon }}" alt="icon">
         </a>
     </span>
     {{ end }}
