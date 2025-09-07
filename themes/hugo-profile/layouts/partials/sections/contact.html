@@ -1,39 +1,107 @@
 {{ if .Site.Params.contact.enable | default false }}
 <section id="contact" class="py-5">
     <div class="container">
-        <h3 class="text-center">{{ .Site.Params.contact.title | default "Get in Touch" }}</h3>
+        <h3 class="text-center">{{ .Site.Params.contact.title | default "Контактная форма" }}</h3>
         <div class="px-0 px-md-5 px-lg-5">
             <div class="row justify-content-center px-md-5">
                 <div class="col-md-8 py-3">
-                    <div class="text-center">
-                        {{ .Site.Params.contact.content | emojify | markdownify }}
+                    <div class="text-center mb-4">
+                        <h4>Записаться на занятие</h4>
+                        <p class="text-muted">{{ .Site.Params.contact.content | default "Заполните форму и мы свяжемся с вами" }}</p>
                     </div>
+                    
                     {{ if .Site.Params.contact.formspree.enable | default false }}
                     <div class="row justify-content-center">
-                        <form id="contact-form" action="https://formspree.io/f/{{ .Site.Params.contact.formspree.formId }}" onsubmit="handleFormspreeSubmit(event)" method="POST" class="col-md-7">
-                            <div class="form-group pt-3">
-                                <input type="email" class="form-control"  name="email" required="true" placeholder='{{ .Site.Params.contact.formspree.emailCaption | emojify | default "Enter your email" }}'>
+                        <form id="contact-form" action="https://formspree.io/f/{{ .Site.Params.contact.formspree.formId }}" onsubmit="handleFormspreeSubmit(event)" method="POST" class="col-md-10">
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group pt-3">
+                                        <label for="lastName" class="form-label">Фамилия <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required placeholder="Иванов">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group pt-3">
+                                        <label for="firstName" class="form-label">Имя <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required placeholder="Иван">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group pt-3">
+                                        <label for="telegram" class="form-label">Telegram</label>
+                                        <input type="text" class="form-control" id="telegram" name="telegram" placeholder="@username">
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="form-group pt-3">
-                                <textarea class="form-control" name="message" required="true" placeholder='{{ .Site.Params.contact.formspree.messageCaption | emojify | default "Enter your message" }}' rows="{{ .Site.Params.contact.formspree.messageRows | default 3 }}"></textarea>
+                                <label for="birthDate" class="form-label">Дата рождения</label>
+                                <input type="date" class="form-control" id="birthDate" name="birthDate">
                             </div>
-                            <div class="form-group text-center pt-3">
-                                <button type="submit" class="btn">{{ .Site.Params.contact.btnName | default "Get in Touch" }}</button>
+
+                            <div class="form-group pt-3">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required placeholder="ivan@example.com">
+                            </div>
+
+                            <div class="form-group pt-3 form-radio-wrapper">
+                                <label class="form-label">Выберите формат обучения <span class="text-danger">*</span></label>
+                                <div class="pt-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="learningFormat" id="individual" value="Индивидуальные занятия" required>
+                                        <label class="form-check-label" for="individual">
+                                            Индивидуальные занятия
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="learningFormat" id="group" value="Групповые занятия" required>
+                                        <label class="form-check-label" for="group">
+                                            Групповые занятия
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="learningFormat" id="speaking" value="Speaking Club" required>
+                                        <label class="form-check-label" for="speaking">
+                                            Speaking Club
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <label for="message" class="form-label">Кратко опишите ваш запрос</label>
+                                <textarea class="form-control" id="message" name="message" rows="{{ .Site.Params.contact.formspree.messageRows | default 4 }}" placeholder="Расскажите о ваших целях изучения языка, уровне подготовки и предпочтениях..."></textarea>
+                            </div>
+
+                            <div class="form-group pt-4 form-radio-wrapper">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="dataConsent" name="dataConsent" required>
+                                    <label class="form-check-label small text-muted" for="dataConsent">
+                                        <span class="text-danger">*</span> Я подтверждаю ознакомление с условиями Согласия на обработку персональных данных пользователя сайта и даю согласие на обработку моих персональных данных на указанных в нем порядке и условиях.
+                                    </label>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="marketingConsent" name="marketingConsent">
+                                    <label class="form-check-label small text-muted" for="marketingConsent">
+                                        Даю согласие на получение рекламных рассылок (материалов)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group text-center pt-4">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">{{ .Site.Params.contact.btnName | default "Отправить заявку" }}</button>
                             </div>
                         </form>
                     </div>
-                    {{ else if or (.Site.Params.contact.email)  (.Site.Params.contact.btnLink) }}
+                    {{ else if or (.Site.Params.contact.email) (.Site.Params.contact.btnLink) }}
                     <div class="text-center pt-3">
                         <a 
-                            href='{{ if .Site.Params.contact.btnLink }}
-                                    {{ .Site.Params.contact.btnLink | default "#" }}
-                                  {{ else }}
-                                    mailto:{{ .Site.Params.contact.email }}
-                                  {{ end }}'
+                            href='{{ if .Site.Params.contact.btnLink }}{{ .Site.Params.contact.btnLink | default "#" }}{{ else }}mailto:{{ .Site.Params.contact.email }}{{ end }}'
                             target="_blank"
-                            class="btn"
+                            class="btn btn-primary btn-lg px-5"
                         >
-                            {{ .Site.Params.contact.btnName | default "Get in Touch" }}
+                            {{ .Site.Params.contact.btnName | default "Связаться со мной" }}
                         </a>
                     </div>
                     {{ end }}
@@ -43,6 +111,257 @@
     </div>
     <div id="contact-form-status"></div>
 </section>
+
+<style>
+.form-check-input {
+    margin-top: 1px !important;
+}
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 0.375rem;
+    padding: 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.form-control::placeholder {
+    color: var(--text-secondary-color);
+    opacity: 0.7;
+}
+
+/* Стили для радиокнопок */
+.form-check-input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-check-input[type="radio"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* Стили для чекбоксов */
+.form-check-input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-check-input[type="checkbox"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+}
+
+.form-check-label {
+    margin-left: 0.75rem;
+    cursor: pointer;
+    color: var(--text-color);
+    line-height: 1.4;
+    flex: 1;
+}
+
+.form-check-label.small {
+    font-size: 0.875rem;
+    line-height: 1.3;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+/* Тёмная тема */
+.dark .form-control {
+    background-color: var(--secondary-background-color);
+    border-color: #495057;
+    color: var(--text-color-dark);
+}
+
+.dark .form-control:focus {
+    background-color: var(--secondary-background-color);
+    border-color: var(--primary-color-dark);
+    color: var(--text-color-dark);
+}
+
+.dark .form-label {
+    color: var(--text-color-dark);
+}
+
+.dark .form-check-label {
+    color: var(--text-color-dark);
+}
+
+.dark .form-check-input[type="radio"],
+.dark .form-check-input[type="checkbox"] {
+    border-color: var(--primary-color-dark);
+}
+
+.dark .form-check-input[type="radio"]:checked,
+.dark .form-check-input[type="checkbox"]:checked {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+}
+
+@media (max-width: 768px) {
+    .row .col-md-4 {
+        margin-bottom: 1rem;
+    }
+    
+    .form-check-input[type="radio"],
+    .form-check-input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .form-check-label {
+        margin-left: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .form-radio-wrapper {
+        padding-left: 25px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const birthDateInput = document.getElementById('birthDate');
+    
+    // Маска для ввода даты в российском формате
+    if (birthDateInput) {
+        birthDateInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '.' + value.substring(2);
+            }
+            if (value.length >= 5) {
+                value = value.substring(0, 5) + '.' + value.substring(5, 9);
+            }
+            
+            e.target.value = value;
+        });
+        
+        // Валидация даты
+        birthDateInput.addEventListener('blur', function(e) {
+            const datePattern = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/;
+            const value = e.target.value;
+            
+            if (value && !datePattern.test(value)) {
+                e.target.setCustomValidity('Введите дату в формате ДД.ММ.ГГГГ');
+            } else if (value && datePattern.test(value)) {
+                // Дополнительная проверка корректности даты
+                const parts = value.split('.');
+                const day = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10);
+                const year = parseInt(parts[2], 10);
+                const date = new Date(year, month - 1, day);
+                
+                if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
+                    e.target.setCustomValidity('Введите корректную дату');
+                } else {
+                    e.target.setCustomValidity('');
+                }
+            } else {
+                e.target.setCustomValidity('');
+            }
+        });
+    }
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            const dataConsent = document.getElementById('dataConsent');
+            const learningFormat = document.querySelector('input[name="learningFormat"]:checked');
+            
+            if (!dataConsent.checked) {
+                e.preventDefault();
+                alert('Необходимо дать согласие на обработку персональных данных');
+                return false;
+            }
+            
+            if (!learningFormat) {
+                e.preventDefault();
+                alert('Необходимо выбрать формат обучения');
+                return false;
+            }
+        });
+    }
+});
+</script>
+
 {{ end }}
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

@@ -15,7 +15,7 @@
                 <p class="hero-content">
                     {{ .Site.Params.hero.content | markdownify }}
                 </p>
-                <div class="row">
+                <div class="row hero-btns">
                     <div class="col-auto h-100">
                         {{ if .Site.Params.hero.button.enable }}
                         <a href="{{ .Site.Params.hero.button.url }}" class="btn" {{ cond .Site.Params.hero.button.download "download" "" }}
@@ -36,7 +36,7 @@
                     <div class="col-sm-12 col-md-9 pt-5 image {{ if .Site.Params.animate }}animate{{ end }} px-5 px-md-5 px-lg-0 text-center">
                         <img src="{{ .Site.Params.hero.image }}"
                             class="img-thumbnail mx-auto{{ if .Site.Params.hero.roundImage }} rounded-circle{{ end }}"
-                            alt="Alina Patrik"
+                            alt="Алина Патрик"
                             loading="eager"
                         >
                     </div>

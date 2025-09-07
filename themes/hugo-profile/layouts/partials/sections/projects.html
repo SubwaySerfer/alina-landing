@@ -19,6 +19,22 @@
                         <div class="card-text bg-transparent secondary-font">
                             {{ .content }}
                         </div>
+
+                        <!-- Цена и время -->
+                        {{ if or .price .duration }}
+                        <div class="service-details mt-3 pt-2 border-top">
+                            {{ if .price }}
+                            <div class="service-price">
+                                <strong>{{ .price }}</strong>
+                            </div>
+                            {{ end }}
+                            {{ if .duration }}
+                            <div class="service-duration text-muted">
+                                {{ .duration }}
+                            </div>
+                            {{ end }}
+                        </div>
+                        {{ end }}
                     </div>
                     {{ if or (.links) (.featured) }}
                     <div class="card-footer py-3">
@@ -79,5 +95,21 @@
             {{ end }}
         </div>
     </div>
+    <style>
+        .service-details {
+            border-top: 1px solid #e9ecef;
+        }
+
+        .service-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .service-duration {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    </style>
 </section>
 {{ end }}

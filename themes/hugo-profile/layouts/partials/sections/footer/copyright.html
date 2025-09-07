@@ -1,26 +1,18 @@
 <div class="container py-4">
     <div class="row justify-content-center">
-        <div class="col-md-4 text-center">
-            {{ if or .Site.Params.navbar.brandLogo .Site.Params.favicon }}
-                <div class="pb-2">
-                    <a href="{{ .Site.BaseURL }}" title="{{ .Site.Title }}">
-                        <img alt="Footer logo" src="{{ .Site.Params.navbar.brandLogo | default .Site.Params.favicon }}"
-                            height="40px" width="40px" alt="icon">
-                    </a>
-                </div>
-            {{ end }}
-            &copy; {{ now.Format "2006"}} {{ .Site.Params.copyright }} {{ .Site.Params.terms.copyright | default "All Rights Reserved" }}
-            <div class="text-secondary">
-                Made with
-                <span class="text-danger">
-                    &#10084;
-                </span>
-                and
-                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
-                    title="Designed and developed by gurusabarish">
-                    Hugo Profile
-                </a>
+        <div class="col-md-6 text-center footer-wrapper">
+            <!-- Правовые ссылки -->
+            <div class="mb-2 text-nowrap footer-links">
+                <a href="/privacy/" target="_blank" class="text-muted small me-3">Политика конфиденциальности</a>
+                <a href="/personal-data/" target="_blank" class="text-muted small me-3">Обработка данных</a>
+                <a href="/marketing-consent/" target="_blank" class="text-muted small">Согласие на рассылку</a>
             </div>
+
+            <!-- Копирайт -->
+            <!-- © {{ now.Format "2006"}} {{ .Site.Params.copyright }} Все права защищены
+            <div class="text-secondary">
+                Сделано с ❤️ и Hugo Profile
+            </div> -->
         </div>
     </div>
 </div>
