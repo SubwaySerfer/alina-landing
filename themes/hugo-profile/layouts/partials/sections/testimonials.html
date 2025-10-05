@@ -2,7 +2,7 @@
 <section id="testimonials" class="py-5">
     <div class="container bg-transparent">
         <h3 class="text-center bg-transparent">{{ .Site.Params.testimonials.title | default "Истории успеха" }}</h3>
-        <div class="bg-transparent row justify-content-center px-3 py-5">
+        <div class="bg-transparent row justify-content-center px-3 pt-5">
             <div class="col-lg-10">
                 <div class="testimonials-container bg-transparent">
                     {{ range $index, $testimonial := .Site.Params.testimonials.items }}
@@ -28,12 +28,11 @@
                     </div>
                     {{ end }}
                 </div>
-                
+
                 {{ if gt (len .Site.Params.testimonials.items) 4 }}
                 <div class="text-center mt-4 bg-transparent">
                     <button class="btn" id="showAllTestimonials" onclick="showAllTestimonials()">
-                        <span class="show-all-text">Показать все отзывы</span>
-                        <span class="show-less-text" style="display: none;">Скрыть</span>
+                        Показать все отзывы
                         <i class="fas fa-chevron-down ms-2"></i>
                     </button>
                 </div>
@@ -66,10 +65,7 @@
     }
 
     .testimonial-card.hidden {
-        max-height: 0;
-        padding: 0 2rem;
-        margin: 0;
-        opacity: 0;
+        display: none;
     }
 
     .testimonial-card:hover {
@@ -161,10 +157,6 @@
         transition: transform 0.3s ease;
     }
 
-    #showAllTestimonials.expanded i {
-        transform: rotate(180deg);
-    }
-
     /* Темная тема */
     .dark .testimonial-card {
         border-color: rgba(255, 255, 255, 0.1);
@@ -191,8 +183,14 @@
         border: 1px solid var(--text-color-dark);
         color: var(--text-color-dark);
     }
-    .dark .show-all-text, .dark .svg-inline--fa, .dark .show-less-text {
+
+    .dark #showAllTestimonials,
+    .dark .svg-inline--fa {
         color: var(--text-color-dark);
+    }
+
+    .dark .btn:focus {
+        box-shadow: 0 0 0 0.25rem #e4e6eb;
     }
 
     .dark .btn-read-more {
@@ -219,7 +217,7 @@
         const readMoreText = button.querySelector('.read-more-text');
         const readLessText = button.querySelector('.read-less-text');
         const icon = button.querySelector('i');
-        
+
         if (button.classList.contains('expanded')) {
             // Свернуть
             textDiv.innerHTML = fullText.substring(0, 350) + '...';
@@ -234,37 +232,17 @@
             button.classList.add('expanded');
         }
     }
-
     function showAllTestimonials() {
         const button = document.getElementById('showAllTestimonials');
         const hiddenCards = document.querySelectorAll('.testimonial-card.hidden');
-        const showAllText = button.querySelector('.show-all-text');
-        const showLessText = button.querySelector('.show-less-text');
-        const icon = button.querySelector('i');
-        
-        if (button.classList.contains('expanded')) {
-            // Скрыть
-            hiddenCards.forEach(card => {
-                card.classList.add('hidden');
-            });
-            showAllText.style.display = 'inline';
-            showLessText.style.display = 'none';
-            button.classList.remove('expanded');
-            
-            // Прокрутка к началу секции отзывов
-            document.getElementById('testimonials').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        } else {
-            // Показать все
-            hiddenCards.forEach(card => {
-                card.classList.remove('hidden');
-            });
-            showAllText.style.display = 'none';
-            showLessText.style.display = 'inline';
-            button.classList.add('expanded');
-        }
+
+        // Показать все скрытые карточки
+        hiddenCards.forEach(card => {
+            card.classList.remove('hidden');
+        });
+
+        // Скрыть кнопку
+        button.style.display = 'none';
     }
 </script>
 {{ end }}

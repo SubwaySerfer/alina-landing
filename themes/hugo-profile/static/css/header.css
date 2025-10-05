@@ -10,7 +10,7 @@ header {
   position: sticky;
 }
 
-header .navbar .navbar-nav a {
+header .navbar .navbar-nav a, .navbar-brand  {
   color: var(--text-color) !important;
 }
 
@@ -43,8 +43,10 @@ header .nav-link {
   transition: none !important;
 }
 .navbar-brand {
-  color: var(--primary-color) !important;
   opacity: 0.95;
+}
+.navbar-brand:hover {
+  color: var(--primary-color) !important;
 }
 .navbar .nav-link:hover {
   color: var(--primary-color) !important;
