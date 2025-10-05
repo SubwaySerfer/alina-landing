@@ -373,7 +373,7 @@ params:
         duration: "60 мин"
         # TODO: create an image and check text.
 
-      - title: Speaking Club. 
+      - title: Speaking Club
         content: Для тех, у кого есть потребность в поддержании текущего уровня и пополнении вокабуляра.
         price: "4000 ₽"
         duration: "(4 встречи, 90 мин.)"
