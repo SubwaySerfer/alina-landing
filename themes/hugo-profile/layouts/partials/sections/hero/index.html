@@ -29,13 +29,17 @@
                             {{ end }}
 
                             <!-- Социальные иконки -->
-                            <div class="social-icons-wrapper d-flex gap-2">
+                            <div class="social-icons-wrapper d-flex gap-2 align-items-center">
                                 {{ range .Site.Params.hero.socialLinks.fontAwesomeIcons }}
-                                <a href="{{ .url }}" {{ if not (hasPrefix .url "#" ) }} target="_blank" {{ end }}
-                                    class="btn social-icon{{ if eq .icon " fab fa-instagram" }} has-footnote{{ end }}"
-                                    title="{{ .title | default " Social link" }}">
-                                    <i class="{{ .icon }}"></i>
-                                </a>
+                                <div class="social-icon-container">
+                                    <a href="{{ .url }}" {{ if not (hasPrefix .url "#" ) }} target="_blank" {{ end }}
+                                        class="btn social-icon" title="{{ .title | default " Social link" }}">
+                                        <i class="{{ .icon }}"></i>
+                                    </a>
+                                    {{ if eq .icon "fab fa-instagram" }}
+                                    <span class="instagram-badge text-danger">*</span>
+                                    {{ end }}
+                                </div>
                                 {{ end }}
                             </div>
 

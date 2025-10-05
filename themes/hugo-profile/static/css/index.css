@@ -143,7 +143,7 @@ header .navbar.animate {
   color: var(--primary-color) !important;
   line-height: 0%;
   border-radius: 50%;
-  margin-top: 50px;
+  margin-top: 0;
   padding: 0.7rem;
   border: 1px solid var(--primary-color);
   transition: none;
@@ -610,94 +610,85 @@ header .navbar.animate {
 
 /* Контейнер для кнопки и иконок */
 .hero-btns .d-flex {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* Обертка для социальных иконок */
 .social-icons-wrapper {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 /* Стили иконок */
 .social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: transparent;
-    border: 2px solid currentColor;
-    transition: all 0.3s ease;
-    position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid currentColor;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .social-icon:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* Звездочка для Instagram */
-.social-icon.has-footnote::after {
-    content: '*';
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    font-size: 14px;
-    color: #ff6b6b;
-    font-weight: bold;
-    background: var(--background-color);
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--background-color);
-}
-
-/* Темная тема - фон звездочки */
-.dark .social-icon.has-footnote::after {
-    background: var(--background-color-dark);
-    border-color: var(--background-color-dark);
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* Сноска */
 .instagram-footnote {
-    margin-top: 1rem;
-    font-size: 0.75rem;
-    line-height: 1.4;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .instagram-footnote .text-danger {
-    color: #dc3545 !important;
-    font-weight: bold;
-    margin-right: 3px;
+  color: #dc3545 !important;
+  font-weight: bold;
+  margin-right: 3px;
 }
 .instagram-footnote .text-muted {
   font-size: 10px;
 }
+.social-icon-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 50px;
+}
+.instagram-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  line-height: 1;
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  .social-icon-container {
+    margin-top: 20px;
+  }
+}
 
 /* Адаптивность для мобильных */
 @media (max-width: 576px) {
-    .hero-btns .d-flex {
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 1rem;
-    }
-    
-    .hero-btns .btn-primary {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .social-icons-wrapper {
-        width: 100%;
-        justify-content: flex-start;
-    }
+  .hero-btns .d-flex {
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .hero-btns .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-icons-wrapper {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
