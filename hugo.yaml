@@ -367,6 +367,13 @@ params:
         #   - icon: fab fa-github
         #     url: https://github.com/gurusabarish/converter
 
+      - title: Парные занятия
+        content: Для тех, кто хочет получить больше внимания, чем в группе, но не готов заниматься индивидуально.
+        image: /images/group-image.webp 
+        price: "1500 ₽"
+        duration: "60 мин"
+        # TODO: create an image and check text.
+
       - title: Speaking Club. 
         content: Для тех, у кого есть потребность в поддержании текущего уровня и пополнении вокабуляра.
         price: "4000 ₽"
