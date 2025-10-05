@@ -1,0 +1,270 @@
+{{ if .Site.Params.testimonials.enable | default false }}
+<section id="testimonials" class="py-5">
+    <div class="container bg-transparent">
+        <h3 class="text-center bg-transparent">{{ .Site.Params.testimonials.title | default "Истории успеха" }}</h3>
+        <div class="bg-transparent row justify-content-center px-3 py-5">
+            <div class="col-lg-10">
+                <div class="testimonials-container bg-transparent">
+                    {{ range $index, $testimonial := .Site.Params.testimonials.items }}
+                    <div class="testimonial-card {{ if ge $index 4 }}hidden{{ end }}" data-index="{{ $index }}">
+                        <div class="testimonial-header bg-transparent">
+                            <div class="testimonial-info bg-transparent">
+                                <h5 class="testimonial-author bg-transparent">{{ $testimonial.author }}</h5>
+                                <span class="testimonial-badge">{{ $testimonial.format }}</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-content bg-transparent">
+                            <div class="testimonial-text bg-transparent" data-full-text="{{ $testimonial.content }}">
+                                {{ $testimonial.content | truncate 350 }}
+                            </div>
+                            {{ if gt (len $testimonial.content) 350 }}
+                            <button class="btn-read-more bg-transparent" onclick="toggleTestimonial(this)">
+                                <span class="read-more-text">Читать полностью</span>
+                                <span class="read-less-text" style="display: none;">Свернуть</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            {{ end }}
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+                
+                {{ if gt (len .Site.Params.testimonials.items) 4 }}
+                <div class="text-center mt-4 bg-transparent">
+                    <button class="btn" id="showAllTestimonials" onclick="showAllTestimonials()">
+                        <span class="show-all-text">Показать все отзывы</span>
+                        <span class="show-less-text" style="display: none;">Скрыть</span>
+                        <i class="fas fa-chevron-down ms-2"></i>
+                    </button>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    #testimonials {
+        background-color: transparent;
+    }
+
+    .testimonials-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .testimonial-card {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        opacity: 1;
+        max-height: 1000px;
+        overflow: hidden;
+        background-color: transparent;
+    }
+
+    .testimonial-card.hidden {
+        max-height: 0;
+        padding: 0 2rem;
+        margin: 0;
+        opacity: 0;
+    }
+
+    .testimonial-card:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-info {
+        flex: 1;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .testimonial-author {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-color);
+    }
+
+    .testimonial-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 1rem;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        border: none;
+    }
+
+    .testimonial-content {
+        color: var(--text-color);
+    }
+
+    .testimonial-text {
+        line-height: 1.7;
+        margin-bottom: 0.5rem;
+        transition: max-height 0.5s ease;
+        overflow: hidden;
+    }
+
+    .testimonial-text.expanded {
+        max-height: none;
+    }
+
+    .btn-read-more {
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        font-weight: 600;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-read-more:hover {
+        opacity: 0.8;
+    }
+
+    .btn-read-more i {
+        transition: transform 0.3s ease;
+    }
+
+    .btn-read-more.expanded i {
+        transform: rotate(180deg);
+    }
+
+    #showAllTestimonials {
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    #showAllTestimonials i {
+        transition: transform 0.3s ease;
+    }
+
+    #showAllTestimonials.expanded i {
+        transform: rotate(180deg);
+    }
+
+    /* Темная тема */
+    .dark .testimonial-card {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .dark .testimonial-card:hover {
+        border-color: var(--primary-color-dark);
+    }
+
+    .dark .testimonial-author {
+        color: var(--text-color-dark);
+    }
+
+    .dark .testimonial-content {
+        color: var(--text-color-dark);
+    }
+
+    .dark .testimonial-text {
+        color: var(--text-color-dark);
+    }
+
+    .dark .testimonial-badge {
+        background: transparent;
+        border: 1px solid var(--text-color-dark);
+        color: var(--text-color-dark);
+    }
+    .dark .show-all-text, .dark .svg-inline--fa, .dark .show-less-text {
+        color: var(--text-color-dark);
+    }
+
+    .dark .btn-read-more {
+        color: var(--primary-color-dark);
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .testimonial-card {
+            padding: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<script>
+    function toggleTestimonial(button) {
+        const card = button.closest('.testimonial-card');
+        const textDiv = card.querySelector('.testimonial-text');
+        const fullText = textDiv.getAttribute('data-full-text');
+        const readMoreText = button.querySelector('.read-more-text');
+        const readLessText = button.querySelector('.read-less-text');
+        const icon = button.querySelector('i');
+        
+        if (button.classList.contains('expanded')) {
+            // Свернуть
+            textDiv.innerHTML = fullText.substring(0, 350) + '...';
+            readMoreText.style.display = 'inline';
+            readLessText.style.display = 'none';
+            button.classList.remove('expanded');
+        } else {
+            // Развернуть
+            textDiv.innerHTML = fullText;
+            readMoreText.style.display = 'none';
+            readLessText.style.display = 'inline';
+            button.classList.add('expanded');
+        }
+    }
+
+    function showAllTestimonials() {
+        const button = document.getElementById('showAllTestimonials');
+        const hiddenCards = document.querySelectorAll('.testimonial-card.hidden');
+        const showAllText = button.querySelector('.show-all-text');
+        const showLessText = button.querySelector('.show-less-text');
+        const icon = button.querySelector('i');
+        
+        if (button.classList.contains('expanded')) {
+            // Скрыть
+            hiddenCards.forEach(card => {
+                card.classList.add('hidden');
+            });
+            showAllText.style.display = 'inline';
+            showLessText.style.display = 'none';
+            button.classList.remove('expanded');
+            
+            // Прокрутка к началу секции отзывов
+            document.getElementById('testimonials').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        } else {
+            // Показать все
+            hiddenCards.forEach(card => {
+                card.classList.remove('hidden');
+            });
+            showAllText.style.display = 'none';
+            showLessText.style.display = 'inline';
+            button.classList.add('expanded');
+        }
+    }
+</script>
+{{ end }}
