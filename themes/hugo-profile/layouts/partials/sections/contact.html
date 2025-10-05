@@ -43,7 +43,8 @@
 
                             <div class="form-group pt-3">
                                 <label for="birthDate" class="form-label">Дата рождения</label>
-                                <input type="date" class="form-control" id="birthDate" name="birthDate">
+                                <input type="text" class="form-control" id="birthDate" name="birthDate"
+                                    placeholder="ДД.ММ.ГГГГ" maxlength="10">
                             </div>
 
                             <div class="form-group pt-3">
@@ -233,7 +234,6 @@
         display: flex;
         align-items: flex-start;
         margin-bottom: 0.75rem;
-        padding-left: 0;
     }
 
     .form-check-label {
@@ -354,6 +354,7 @@
         align-items: flex-start;
         padding: 1rem;
         margin-bottom: 1rem;
+        gap: 10px;
         border: 1px solid transparent;
         border-radius: 0.375rem;
     }
@@ -416,6 +417,9 @@
     .btn-close::before {
         content: "×";
     }
+    #contact-form {
+        width: 100%;
+    }
 
     /* Улучшенная видимость для мобильных */
     @media (max-width: 768px) {
@@ -446,10 +450,6 @@
             margin-left: 0.5rem;
             font-size: 0.9rem;
         }
-
-        .form-radio-wrapper {
-            padding-left: 25px;
-        }
     }
 </style>
 
@@ -460,9 +460,11 @@
 
         // Маска для ввода даты в российском формате
         if (birthDateInput) {
+            // Маска для ввода
             birthDateInput.addEventListener('input', function (e) {
-                let value = e.target.value.replace(/\D/g, '');
+                let value = e.target.value.replace(/\D/g, ''); // Удаляем всё кроме цифр
 
+                // Форматируем как ДД.ММ.ГГГГ
                 if (value.length >= 2) {
                     value = value.substring(0, 2) + '.' + value.substring(2);
                 }
@@ -473,29 +475,43 @@
                 e.target.value = value;
             });
 
-            // Валидация даты
+            // Валидация при потере фокуса
             birthDateInput.addEventListener('blur', function (e) {
-                const datePattern = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/;
                 const value = e.target.value;
 
-                if (value && !datePattern.test(value)) {
-                    e.target.setCustomValidity('Введите дату в формате ДД.ММ.ГГГГ');
-                } else if (value && datePattern.test(value)) {
-                    // Дополнительная проверка корректности даты
-                    const parts = value.split('.');
-                    const day = parseInt(parts[0], 10);
-                    const month = parseInt(parts[1], 10);
-                    const year = parseInt(parts[2], 10);
-                    const date = new Date(year, month - 1, day);
+                if (!value) {
+                    e.target.setCustomValidity('');
+                    return; // Поле необязательное
+                }
 
-                    if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
-                        e.target.setCustomValidity('Введите корректную дату');
-                    } else {
-                        e.target.setCustomValidity('');
-                    }
+                const datePattern = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/;
+
+                if (!datePattern.test(value)) {
+                    e.target.setCustomValidity('Введите дату в формате ДД.ММ.ГГГГ');
+                    e.target.reportValidity();
+                    return;
+                }
+
+                // Проверка корректности даты
+                const parts = value.split('.');
+                const day = parseInt(parts[0], 10);
+                const month = parseInt(parts[1], 10);
+                const year = parseInt(parts[2], 10);
+                const date = new Date(year, month - 1, day);
+
+                if (date.getFullYear() !== year ||
+                    date.getMonth() !== month - 1 ||
+                    date.getDate() !== day) {
+                    e.target.setCustomValidity('Введите корректную дату');
+                    e.target.reportValidity();
                 } else {
                     e.target.setCustomValidity('');
                 }
+            });
+
+            // Очистка ошибки при вводе
+            birthDateInput.addEventListener('input', function (e) {
+                e.target.setCustomValidity('');
             });
         }
 

@@ -88,6 +88,9 @@
     gap: 10px;
     font-size: 12px;
   }
+  #projects .col-lg-4 {
+    padding: 0;
+  }
 }
 
 .animation {
