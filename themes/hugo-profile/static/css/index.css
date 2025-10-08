@@ -75,6 +75,17 @@ header .navbar.animate {
   line-height: 2rem;
   max-width: 100%;
 }
+@media (max-width: 768px) {
+  .hero-content-wrapper {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  #hero {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
 #hero .content.animate {
   animation: fade-left 1s ease-out;
 }
