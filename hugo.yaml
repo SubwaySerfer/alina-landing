@@ -140,7 +140,7 @@ params:
      Я преподаватель английского, который поможет тебе исполнить твои самые смелые мечты. Мои студенты получили офферы в иностранных компаниях, подготовились к эмиграции, выступили на международных конференциях, ведут переговоры на английском, избавились от языкового барьера, начали потреблять любимый контент в оригинале. Я работаю в коммуникативном подходе и составляю программу обучения на основе ваших запросов. Со мной вы начнете говорить уже на первом уроке.
 
      Я обожаю учиться, поэтому сейчас заканчиваю обучение в магистратуре СПбГУ по направлению “Международные отношения”, работаю над диссертацией и публикую научные статьи в области европейских и американских исследований.
-    image: https://alina-landing.hb.ru-msk.vkcloud-storage.ru/images/alina.webp
+    image: https://img.thetutoress.ru/images/alina.webp
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -333,7 +333,7 @@ params:
       - title: Индивидуальные занятия
         content: |
                 Для тех, кто хочет прицельно работать над узким запросом.
-        image: https://alina-landing.hb.ru-msk.vkcloud-storage.ru/images/ind.png
+        image: https://img.thetutoress.ru/images/ind.png
         price: "2000 ₽"
         duration: "60 мин"
         # featured:
@@ -353,7 +353,7 @@ params:
 
       - title: Групповые занятия
         content: Для тех, кто хочет повысить уровень и максимально погрузиться в общение на языке.
-        image: https://alina-landing.hb.ru-msk.vkcloud-storage.ru/images/group.png
+        image: https://img.thetutoress.ru/images/group.png
         price: "1200 ₽"
         duration: "90 мин"
         # featured:
@@ -368,7 +368,7 @@ params:
 
       - title: Парные занятия
         content: Для тех, кто хочет получить больше внимания, чем в группе, но не готов заниматься индивидуально.
-        image: https://alina-landing.hb.ru-msk.vkcloud-storage.ru/images/couple.png
+        image: https://img.thetutoress.ru/images/couple.png
         price: "1500 ₽"
         duration: "60 мин"
 
@@ -377,7 +377,7 @@ params:
         price: "4000 ₽"
         duration: "(4 встречи, 90 мин.)"
 
-        image: https://alina-landing.hb.ru-msk.vkcloud-storage.ru/images/speaking.png
+        image: https://img.thetutoress.ru/images/speaking.png
         # featured:
         #   name: Demo V2
         #   link: https://hugo-profile-2.netlify.app
