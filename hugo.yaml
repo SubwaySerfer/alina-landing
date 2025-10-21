@@ -333,7 +333,7 @@ params:
       - title: Индивидуальные занятия
         content: |
                 Для тех, кто хочет прицельно работать над узким запросом.
-        image: https://img.thetutoress.ru/images/ind.png
+        image: https://img.thetutoress.ru/images/ind.webp
         price: "2000 ₽"
         duration: "60 мин"
         # featured:
@@ -353,7 +353,7 @@ params:
 
       - title: Групповые занятия
         content: Для тех, кто хочет повысить уровень и максимально погрузиться в общение на языке.
-        image: https://img.thetutoress.ru/images/group.png
+        image: https://img.thetutoress.ru/images/group.webp
         price: "1200 ₽"
         duration: "90 мин"
         # featured:
@@ -368,7 +368,7 @@ params:
 
       - title: Парные занятия
         content: Для тех, кто хочет получить больше внимания, чем в группе, но не готов заниматься индивидуально.
-        image: https://img.thetutoress.ru/images/couple.png
+        image: https://img.thetutoress.ru/images/couple.webp
         price: "1500 ₽"
         duration: "60 мин"
 
@@ -377,7 +377,7 @@ params:
         price: "4000 ₽"
         duration: "(4 встречи, 90 мин.)"
 
-        image: https://img.thetutoress.ru/images/speaking.png
+        image: https://img.thetutoress.ru/images/speaking.webp
         # featured:
         #   name: Demo V2
         #   link: https://hugo-profile-2.netlify.app

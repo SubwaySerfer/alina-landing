@@ -75,8 +75,8 @@ header .navbar.animate {
   line-height: 2rem;
   max-width: 100%;
 }
-@media (max-width: 768px) {
-  .hero-content-wrapper {
+@media(max-width: 1024px) {
+    .hero-content-wrapper {
     flex-direction: column-reverse;
     gap: 10px;
   }
@@ -624,6 +624,11 @@ header .navbar.animate {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+@media(min-width: 568px) and (max-width: 1024px) {
+  .hero-btns .d-flex {
+    align-items: flex-end !important;
+  }
 }
 
 /* Обертка для социальных иконок */
