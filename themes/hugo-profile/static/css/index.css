@@ -680,9 +680,26 @@ header .navbar.animate {
   line-height: 1;
   z-index: 10;
 }
+.footer-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 768px) {
   .social-icon-container {
     margin-top: 20px;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
   }
 }
 

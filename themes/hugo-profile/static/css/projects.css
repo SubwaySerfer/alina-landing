@@ -75,6 +75,8 @@
 .footer-links {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .footer-wrapper {
   width: 100%;
