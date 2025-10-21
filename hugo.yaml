@@ -153,9 +153,9 @@ params:
     socialLinks:
       fontAwesomeIcons:
         - icon: "fab fa-instagram"
-          url: https://www.instagram.com/alinapatrik_?igsh=NGhwOWNnd21jZXA2
+          url: https://www.instagram.com/thetutoress.eng/
         - icon: fab fa-telegram
-          url: https://t.me/alinapatrik
+          url: https://t.me/patrikalina
         - icon: "fab fa-youtube"
           url: https://www.youtube.com/@thetutoressAlina  
       # customIcons:
@@ -465,7 +465,7 @@ params:
       # github: https://github.com
       # linkedin: https://linkedin.com
       # twitter: https://twitter.com
-      # instagram: https://www.instagram.com/alinapatrik_?igsh=NGhwOWNnd21jZXA2
+      # instagram: https://www.instagram.com/thetutoress.eng/ 
       # facebook: https://facebook.com
 
   # List pages like blogs and posts
