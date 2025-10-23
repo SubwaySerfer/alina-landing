@@ -456,7 +456,7 @@ params:
       disableFeaturedImage: false
     footerLinks:
     - name: "Политика конфиденциальности"
-      url: "/privacy/"
+      url: "/docs/privacy/"
     - name: "Обработка данных"
       url: "/personal-data/"
     - name: "Согласие на рассылку"
