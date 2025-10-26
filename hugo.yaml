@@ -458,9 +458,9 @@ params:
     - name: "Политика конфиденциальности"
       url: "/docs/privacy/"
     - name: "Обработка данных"
-      url: "/personal-data/"
+      url: "/docs/personal-data/"
     - name: "Согласие на рассылку"
-      url: "/marketing-consent/"
+      url: "/docs/marketing-consent/"
     socialNetworks:
       # github: https://github.com
       # linkedin: https://linkedin.com

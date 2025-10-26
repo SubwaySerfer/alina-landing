@@ -13,6 +13,14 @@
   margin: 0 auto;
   padding: 2rem;
 }
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#content {
+  flex: 1;
+}
 
 .document-header {
   text-align: center;
@@ -55,17 +63,19 @@
 }
 
 .document-content h2 {
-  font-size: 1.5rem;
+  font-size: 16px;
   color: var(--text-color);
-  margin: 2rem 0 1rem 0;
+  margin: 15px 0;
   font-weight: 600;
+  line-height: 1.55;
 }
 
 .document-content h3 {
-  font-size: 1.3rem;
+  font-size: 16px;
   color: var(--text-color);
-  margin: 1.5rem 0 0.8rem 0;
+  margin: 15px 0;
   font-weight: 600;
+  line-height: 1.55;
 }
 
 .document-content h4 {
@@ -76,13 +86,14 @@
 }
 
 .document-content p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
   text-align: start;
+  line-height: 1.55;
 }
 
 .document-content ul,
 .document-content ol {
-  margin: 1rem 0 1.5rem;
+  margin: 10px;
   padding-left: 20px;
 }
 
@@ -175,11 +186,6 @@
 }
 
 /* Тёмная тема */
-.dark .document-container {
-  background: var(--secondary-background-color-dark);
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-}
-
 .dark .document-title {
   color: var(--text-color-dark);
 }
