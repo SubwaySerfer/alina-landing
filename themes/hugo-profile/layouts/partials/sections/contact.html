@@ -554,8 +554,8 @@
                 birthDate: form.birthDate.value || 'Не указана',
                 learningFormat: form.querySelector('input[name="learningFormat"]:checked').value,
                 message: form.message.value || 'Не указано',
-                dataConsent: form.dataConsent.checked ? 'Да' : 'Нет',
-                marketingConsent: form.marketingConsent.checked ? 'Да' : 'Нет'
+                dataConsent: form.dataConsent.checked ? true : false,
+                marketingConsent: form.marketingConsent.checked ? true : false
             };
 
             const response = await fetch(
