@@ -558,39 +558,14 @@
                 marketingConsent: form.marketingConsent.checked ? 'Да' : 'Нет'
             };
 
-            const telegramMessage = `
-🎓 <b>Новая заявка на обучение!</b>
-
-👤 <b>Имя:</b> ${formData.firstName} ${formData.lastName}
-📱 <b>Telegram:</b> ${formData.telegram}
-📧 <b>Email:</b> ${formData.email}
-🎂 <b>Дата рождения:</b> ${formData.birthDate}
-📚 <b>Формат:</b> ${formData.learningFormat}
-
-💬 <b>Сообщение:</b>
-${formData.message}
-
-✅ <b>Согласие на данные:</b> ${formData.dataConsent}
-📬 <b>Согласие на рассылку:</b> ${formData.marketingConsent}
-
-⏰ ${new Date().toLocaleString('ru-RU')}
-        `.trim();
-
-            const TELEGRAM_BOT_TOKEN = '8216529528:AAHER15apsFJj8Hhr3BtZkCu3l8IX_m4TF8';
-            const TELEGRAM_CHAT_ID = '-4800087723';
-
             const response = await fetch(
-                `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+                'https://5.35.124.243:3001/api/thetutoress-lead',
                 {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: telegramMessage,
-                        parse_mode: 'HTML'
-                    })
+                    body: JSON.stringify(formData)
                 }
             );
 

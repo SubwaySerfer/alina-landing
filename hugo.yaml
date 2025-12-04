@@ -1,6 +1,6 @@
 baseURL: "https://thetutoress.ru/"
-languageCode: "en-us"
-title: "Алина Патрик"
+languageCode: "ru_RU"
+title: "Алина Патрик - Преподаватель английского языка"
 theme: hugo-profile
 
 outputs:
@@ -59,10 +59,16 @@ Menus:
     #   weight: 2
 
 params:
-  title: "Hugo Profile"
-  description: Text about my cool site
+  title: "Алина Патрик - Преподаватель английского языка"
+  description: Квалифицированный преподаватель английского языка с 3-летним опытом. Индивидуальные, парные и групповые занятия онлайн. Разговорная практика, бизнес-английский, подготовка к собеседованиям и презентациям
+  keywords: "преподаватель английского, английский онлайн, репетитор английского, уроки английского, английский язык, Speaking Club, подготовка к экзаменам"
+  author: "Алина Патрик"
   # staticPath: ""  # The path to serve the static files from
+  image: "https://img.thetutoress.ru/images/alina.webp"
   favicon: "/fav.svg"
+  seo:
+    locale: "ru_RU"
+    type: "website"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
@@ -472,8 +478,8 @@ params:
       content: "min read"
     scrollprogress:
       enable: true
-    tags:
-      openInNewTab: true
+    # tags:
+    #   openInNewTab: true
 
   # For translations
   terms:

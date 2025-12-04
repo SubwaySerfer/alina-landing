@@ -1,4 +1,53 @@
-{{/*
-    You can add further theme extensions or customizations here if they should
-    appear in <head>.
-*/}}
+<!-- SEO Meta Tags -->
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+<meta name="keywords" content="{{ if .Params.tags }}{{ delimit .Params.tags ", " }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+<meta property="og:image" content="https://img.thetutoress.ru/images/alina.webp">
+<meta property="og:locale" content="ru_RU">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ .Permalink }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ .Description | default .Site.Params.description }}">
+<meta name="twitter:image" content="https://img.thetutoress.ru/images/alina.webp">
+
+<!-- Telegram -->
+<meta property="telegram:channel" content="@patrikalina">
+
+<!-- Structured Data for Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Алина Патрик - Преподаватель английского языка",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Site.BaseURL }}",
+  "logo": "{{ .Site.Params.favicon | absURL }}",
+  "email": "thetutoress.eng@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "RU",
+    "addressLocality": "Москва"
+  },
+  "sameAs": [
+    "https://t.me/patrikalina",
+    "https://instagram.com/the.tutoress"
+  ],
+  "priceRange": "от 1500₽",
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "price": "1500",
+    "priceCurrency": "RUB"
+  }
+}
+</script>
