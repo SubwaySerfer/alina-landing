@@ -64,7 +64,7 @@ params:
   keywords: "преподаватель английского, английский онлайн, репетитор английского, уроки английского, английский язык, разговорный клуб, подготовка к экзаменам"
   author: "Алина Патрик"
   # staticPath: ""  # The path to serve the static files from
-  image: "https://img.thetutoress.ru/images/alina.webp"
+  image: "/images/alina.webp"
   favicon: "/fav.svg"
   seo:
     locale: "ru_RU"
@@ -146,7 +146,7 @@ params:
      Я преподаватель английского, который поможет тебе исполнить твои самые смелые мечты. Мои студенты получили офферы в иностранных компаниях, подготовились к эмиграции, выступили на международных конференциях, ведут переговоры на английском, избавились от языкового барьера, начали потреблять любимый контент в оригинале. Я работаю в коммуникативном подходе и составляю программу обучения на основе ваших запросов. Со мной вы начнете говорить уже на первом уроке.
 
      Я обожаю учиться, поэтому сейчас заканчиваю обучение в магистратуре СПбГУ по направлению “Международные отношения”, работаю над диссертацией и публикую научные статьи в области европейских и американских исследований.
-    image: https://img.thetutoress.ru/images/alina.webp
+    image: /images/alina.webp
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -331,7 +331,7 @@ params:
       - title: Индивидуальные занятия
         content: |
                 Для тех, кто хочет прицельно работать над узким запросом.
-        image: https://img.thetutoress.ru/images/ind.webp
+        image: /images/ind.webp
         price: "2000 ₽"
         duration: "60 мин"
         # featured:
@@ -351,7 +351,7 @@ params:
 
       - title: Групповые занятия
         content: Для тех, кто хочет повысить уровень и максимально погрузиться в общение на языке.
-        image: https://img.thetutoress.ru/images/group.webp
+        image: /images/group.webp
         price: "1200 ₽"
         duration: "90 мин"
         # featured:
@@ -366,7 +366,7 @@ params:
 
       - title: Парные занятия
         content: Для тех, кто хочет получить больше внимания, чем в группе, но не готов заниматься индивидуально.
-        image: https://img.thetutoress.ru/images/couple.webp
+        image: /images/couple.webp
         price: "1500 ₽"
         duration: "60 мин"
 
@@ -375,7 +375,7 @@ params:
         price: "4000 ₽"
         duration: "(4 встречи, 90 мин.)"
 
-        image: https://img.thetutoress.ru/images/Разговорный.webp
+        image: /images/speaking.webp
         # featured:
         #   name: Demo V2
         #   link: https://hugo-profile-2.netlify.app
