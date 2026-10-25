@@ -331,7 +331,7 @@ params:
       - title: Индивидуальные занятия
         content: |
                 Для тех, кто хочет прицельно работать над узким запросом.
-        image: /images/ind-image.webp
+        image: /images/ind.webp
         price: "2000 ₽"
         duration: "60 мин"
         # featured:
@@ -351,7 +351,7 @@ params:
 
       - title: Групповые занятия
         content: Для тех, кто хочет повысить уровень и максимально погрузиться в общение на языке.
-        image: /images/group-image.webp
+        image: /images/group.webp
         price: "1200 ₽"
         duration: "90 мин"
         # featured:
@@ -375,7 +375,7 @@ params:
         price: "4000 ₽"
         duration: "(4 встречи, 90 мин.)"
 
-        image: /images/speaking-club.webp
+        image: /images/speaking.webp
         # featured:
         #   name: Demo V2
         #   link: https://hugo-profile-2.netlify.app
